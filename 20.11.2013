@@ -1,0 +1,111 @@
+//KARMASIK SAYILARDA TOPLAMA
+#include<stdio.h>
+void main()
+{
+	int reel1,imaginery1,reel2,imaginery2,reel,imaginery;
+	printf("1.sayinin reel kismi giriniz: ");
+	scanf("%d",&reel1);
+	printf("1.sayinin imaginery kismi girin: ");
+	scanf("%d", &imaginery1);
+	printf("2.sayinin reel kismi giriniz: ");
+	scanf("%d",&reel2);
+	printf("2.sayinin imaginery kismi girin: ");
+	scanf("%d", &imaginery2);
+	imaginery=imaginery1+imaginery2;
+	reel=reel1+reel2;
+	printf("Sonuc=%d+%di\n",reel,imaginery);
+	
+}
+
+//PALINDROMIK SAYILAR
+#include<stdio.h>
+int main()
+{
+	int sayi,gec,sayi2=0;
+	printf("Sayiyi giriniz: ");
+	scanf("%d",&sayi);
+	gec=sayi;
+	for(;gec>0;)	//Sayiyi tersine cevirir.
+	{
+		sayi2=sayi2*10;
+		sayi2=sayi2+gec%10;
+		gec=gec/10;
+	}
+	if(sayi==sayi2)
+		printf("Palindromik sayidir.\n");
+	else
+		printf("Palindromik sayi degildir.\n");
+	return 0;
+}
+
+//MATRISLERDE DORT ISLEM
+#include<stdio.h>
+void main()
+{
+	int matris[3][3],matris2[3][3],topla[3][3],cikar[3][3],carp[3][3]={0};
+	int i,j,k;
+	printf("1.matrisin elemanlarini giriniz: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			scanf("%d",&matris[i][j]);
+		}
+	}
+	printf("2.matrisin elemanlarini giriniz: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			scanf("%d",&matris2[i][j]);
+		}
+	}
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			topla[i][j]=matris[i][j]+matris2[i][j];
+			cikar[i][j]=matris[i][j]-matris2[i][j];
+		}
+	}
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			for(k=0;k<3;k++)
+			{
+				 carp[i][j] += matris[i][k]*matris2[k][j];
+			}
+		}
+	}
+
+	printf("\nToplama:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			printf("%4d",topla[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n\n");
+	printf("\nCikarma:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			printf("%4d",cikar[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n\n");
+	printf("\nCarpma:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			printf("%4d",carp[i][j]);
+		}
+		printf("\n");
+	}
+}
