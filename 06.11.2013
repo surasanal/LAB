@@ -1,0 +1,82 @@
+//DIZIYI TERSINE CEVIREN PROGRAM
+#include<stdio.h>
+void main()
+{
+	int dizi1[6],dizi2[6],i,j;
+	printf("Dizi elemanlarini giriniz: ");
+	for(i=0;i<6;i++)
+		scanf("%d",&dizi1[i]);
+	
+	for(i=0,j=5;i<6;i++,j--)
+		dizi2[j] = dizi1[i];
+	for(i=0;i<6;i++)
+		printf("%d ",dizi2[i]);
+
+}
+
+
+//EBOB-EKOK
+#include<stdio.h>
+void main()
+{
+	int sayi1,sayi2,i;
+	printf("Birinci sayiyi giriniz: ");
+	scanf("%d",&sayi1);
+	printf("Ikinci sayiyi giriniz: ");
+	scanf("%d",&sayi2);
+	for(i=1;i<=sayi1*sayi2; i++)
+	{
+		if(i%sayi1==0 && i%sayi2==0)
+		{
+			printf("Sayinin ekoku %d\n",i);
+			break;
+		}
+	}
+	if(sayi1>sayi2)
+		i=sayi1;
+	else
+		i=sayi2;
+	for(i=sayi2;i>0;i--)
+	{
+		if(sayi1%i==0 && sayi2%i==0)
+		{
+			printf("Sayinin ebobu %d\n",i);
+			break;
+		}
+	}
+}
+
+
+//ARAMA
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+	int i,kullanicisayisi,TC[BUFSIZ][20],bulundu=0;
+	char AD[BUFSIZ][20],SOYAD[BUFSIZ][20],DOGUMYERI[BUFSIZ][15],ara[20];
+	printf("Kullanici sayisini giriniz: ");
+	scanf("%d",&kullanicisayisi);
+	for(i=0;i<kullanicisayisi;i++)
+	{
+		printf("Kullanici TC Numarasi: ");
+		scanf("%d",&TC[i]);
+		printf("Kullanici adi: ");
+		scanf("%s",&AD[i]);
+		printf("Kullanici soyadi: ");
+		scanf("%s",&SOYAD[i]);
+		printf("Kullanici dogumyeri: ");
+		scanf("%s",&DOGUMYERI[i]);
+	}
+	bulundu==0;
+	printf("Aranacak kullanici adi: ");
+	scanf("%s",&ara);
+	for(i=0;i<kullanicisayisi;i++)
+		if(strcmp(ara,AD[i])==0)
+		{
+			bulundu=1;
+			printf("Aranan kullaniciya ait bilgiler:\nKullanici TC Numarasi:%d\nKullanici adi:%s\nKullanici soyadi:%s\nKullanici dogumyeri:%s",TC[i],AD[i],SOYAD[i],DOGUMYERI[i]);
+		}
+	if(bulundu==0)
+		printf("Aradiginiz kullanici bulunamadi..\n");
+}
+
